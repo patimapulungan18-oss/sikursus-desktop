@@ -29,10 +29,7 @@ import javax.swing.UIManager;
 
 public class FormPendaftaranKursus extends JFrame {
 
-    private final Color warnaLatar = new Color(198, 247, 198);   
-    private final Color warnaHeader = new Color(0, 0, 0);         
-    private final Color warnaProses = new Color(255, 255, 255);   
-    private final Color warnaReset = new Color(255, 255, 255);    
+    private final Color warnaLatar = new Color(198, 247, 198);
 
 
     private JPanel panelUtama;
@@ -85,7 +82,7 @@ public class FormPendaftaranKursus extends JFrame {
         panelForm = new JPanel(new GridBagLayout());
         panelJenis = new JPanel(new FlowLayout(FlowLayout.LEFT, 14, 0));
         panelFasilitas = new JPanel(new FlowLayout(FlowLayout.LEFT, 14, 0));
-        panelTombol = new JPanel(new FlowLayout(FlowLayout.CENTER, 24, 0));
+        panelTombol = new JPanel(new FlowLayout(FlowLayout.CENTER, 60, 0));
 
         lblJudul = new JLabel("Form Pendaftaran Kursus", SwingConstants.CENTER);
         lblNama = new JLabel("Nama Peserta");
@@ -123,14 +120,14 @@ public class FormPendaftaranKursus extends JFrame {
         setTitle("SIKURSUS Desktop - Pendaftaran Kursus");
 
         panelUtama.setBackground(warnaLatar);
-        panelHeader.setBackground(warnaHeader);
+        panelHeader.setBackground(warnaLatar);
         panelForm.setBackground(warnaLatar);
         panelJenis.setBackground(warnaLatar);
         panelFasilitas.setBackground(warnaLatar);
         panelTombol.setBackground(warnaLatar);
 
-        lblJudul.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        lblJudul.setForeground(Color.WHITE);
+        lblJudul.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+        lblJudul.setForeground(Color.BLACK);
         lblJudul.setPreferredSize(new Dimension(100, 70));
         panelHeader.add(lblJudul, BorderLayout.CENTER);
 
@@ -147,16 +144,17 @@ public class FormPendaftaranKursus extends JFrame {
         panelFasilitas.add(cbSertifikat);
         panelFasilitas.add(cbRekaman);
 
-        btnProses.setBackground(warnaProses);
-        btnProses.setForeground(Color.WHITE);
+        // Tombol memakai tampilan default Nimbus (tanpa setBackground/setForeground)
+        btnProses.setText("Proses");
+        btnProses.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         btnProses.setFocusPainted(false);
-        btnProses.setPreferredSize(new Dimension(130, 38));
+        btnProses.setPreferredSize(new Dimension(100, 32));
         btnProses.addActionListener(evt -> btnProsesActionPerformed());
 
-        btnReset.setBackground(warnaReset);
-        btnReset.setForeground(Color.WHITE);
+        btnReset.setText("Reset");
+        btnReset.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         btnReset.setFocusPainted(false);
-        btnReset.setPreferredSize(new Dimension(130, 38));
+        btnReset.setPreferredSize(new Dimension(100, 32));
         btnReset.addActionListener(evt -> btnResetActionPerformed());
 
         panelTombol.add(btnProses);
