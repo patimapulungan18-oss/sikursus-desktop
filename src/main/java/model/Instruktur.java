@@ -1,25 +1,36 @@
 package model;
 
 public class Instruktur extends Orang {
+
+    // Field khusus instruktur
     private String keahlian;
 
-    public Instruktur(int id, String nama, String noHp, String keahlian) {
-        // Inheritance: data umum diteruskan ke constructor parent Orang.
+    // Constructor
+    public Instruktur(int id, String nama, String noHp,
+                      String keahlian) {
         super(id, nama, noHp);
-        this.keahlian = keahlian;
+        setKeahlian(keahlian);
     }
 
+    // Getter
     public String getKeahlian() {
         return keahlian;
     }
 
+    // Setter dengan validasi
     public void setKeahlian(String keahlian) {
-        this.keahlian = keahlian;
+        if (keahlian == null || keahlian.trim().isEmpty()) {
+            throw new IllegalArgumentException(
+                    "Keahlian wajib diisi");
+        }
+
+        this.keahlian = keahlian.trim();
     }
 
+    // Override getInfo()
     @Override
     public String getInfo() {
-        return "[Instruktur] " + super.getInfo()
-                + " | Keahlian: " + keahlian;
+        return "INSTRUKTUR | " + super.getInfo()
+                + " | Keahlian: " + getKeahlian();
     }
 }

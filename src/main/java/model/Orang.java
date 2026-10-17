@@ -1,43 +1,65 @@
 package model;
 
 public class Orang {
+   // Field dibuat private untuk menerapkan enkapsulasi
     private int id;
     private String nama;
     private String noHp;
 
+    // Constructor menggunakan setter agar data divalidasi
     public Orang(int id, String nama, String noHp) {
-        this.id = id;
-        this.nama = nama;
-        this.noHp = noHp;
+        setId(id);
+        setNama(nama);
+        setNoHp(noHp);
     }
 
+    // Getter
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNama() {
         return nama;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
     public String getNoHp() {
         return noHp;
     }
 
-    public void setNoHp(String noHp) {
-        this.noHp = noHp;
+    // Setter dengan validasi ID
+    public void setId(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException(
+                    "ID tidak boleh negatif");
+        }
+        this.id = id;
     }
 
+    // Setter dengan validasi nama
+    public void setNama(String nama) {
+        if (nama == null || nama.trim().isEmpty()) {
+            throw new IllegalArgumentException(
+                    "Nama wajib diisi");
+        }
+        this.nama = nama.trim();
+    }
+
+    // Setter dengan validasi nomor HP
+    public void setNoHp(String noHp) {
+        String nilai = noHp == null ? "" : noHp.trim();
+
+        if (!nilai.isEmpty()
+                && !nilai.matches("[0-9+\\- ]{8,20}")) {
+            throw new IllegalArgumentException(
+                    "Format nomor HP tidak valid");
+        }
+
+        this.noHp = nilai;
+    }
+
+    // Menampilkan informasi umum
     public String getInfo() {
-        return "ID: " + id
-                + " | Nama: " + nama
-                + " | No. HP: " + noHp;
+        return getNama() + " | HP: "
+                + (getNoHp().isEmpty() ? "-" : getNoHp());
     }
 }
