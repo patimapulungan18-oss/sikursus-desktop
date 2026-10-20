@@ -1,42 +1,40 @@
+
 package latihan;
 
 public class LatihanBiayaKursus {
-    
+
     public static void main(String[] args) {
-        // --- DATA AWAL ---
+
         String kode = "JAVA-BSC";
-        String nama = "Java Desktop Fundamental";
-        double biaya = 2_700_000;
+        String namaKursus = "Java Desktop Fundamental";
         boolean aktif = true;
-        
-        // 1. Tambahkan biaya registrasi Rp25.000
-        double biayaRegistrasi = 1_000_000;
-        double totalSebelumDiskon = biaya + biayaRegistrasi;
-        
-        // 2. Logic Diskon Bersyarat (Jika >= 600k dapet 10%, selain itu 5%)
-        double rateDiskon;
-        if (totalSebelumDiskon >= 750_000) {
-            rateDiskon = 0.10; // 10%
+
+        double regFee = 1000000;
+        double biayaTambahan = 2700000;
+
+        double subtotal = regFee + biayaTambahan;
+        double diskonRate = 0.10;
+        double potongan = subtotal * diskonRate;
+        double totalAkhir = subtotal - potongan;
+
+        String status;
+
+        if (totalAkhir >= 3000000) {
+            status = "MAHAL";
+        } else if (totalAkhir >= 1500000) {
+            status = "STANDAR";
         } else {
-            rateDiskon = 0.05; // 5%
+            status = "EKONOMIS";
         }
-        
-        // Kalkulasi akhir
-        double potongan = totalSebelumDiskon * rateDiskon;
-        double totalAkhir = totalSebelumDiskon - potongan;
-        
-        // 3. Tampilkan status MAHAL / TERJANGKAU (Pake ternary operator biar clean)
-        String status = (totalAkhir >= 750_000) ? "MAHAL" : "TERJANGKAU";
-        
-        // --- OUTPUT KE CONSOLE ---
+
         System.out.println("Kode        : " + kode);
-        System.out.println("Kursus      : " + nama);
+        System.out.println("Kursus      : " + namaKursus);
         System.out.println("Aktif       : " + aktif);
-        System.out.printf("Reg Fee     : Rp%,.0f%n", biayaRegistrasi);
-        System.out.printf("Subtotal    : Rp%,.0f%n", totalSebelumDiskon);
-        System.out.println("Diskon Rate : " + (rateDiskon * 100) + "%");
+        System.out.printf("Reg Fee     : Rp%,.0f%n", regFee);
+        System.out.printf("Subtotal    : Rp%,.0f%n", subtotal);
+        System.out.printf("Diskon Rate : %.1f%%%n", diskonRate * 100);
         System.out.printf("Potongan    : Rp%,.0f%n", potongan);
-        System.out.println("---------------------------------");
+        System.out.println("------------------------------");
         System.out.printf("Total Akhir : Rp%,.0f%n", totalAkhir);
         System.out.println("Status      : " + status);
     }

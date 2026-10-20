@@ -11,7 +11,6 @@ app\UjiValidasi$8.class
 app\UjiValidasi$2.class
 app\DemoKursus.class
 model\Instruktur.class
-latihan\latihan2.class
 app\UjiValidasi$6.class
 view\FormPendaftaran$2.class
 app\UjiValidasi$4.class
@@ -29,3 +28,4 @@ app\UjiValidasi$9.class
 model\Peserta.class
 app\UjiValidasi.class
 app\UjiValidasi$1.class
+model\Admin.class
