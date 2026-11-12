@@ -1,0 +1,35 @@
+==================================================
+LAPORAN UJI COBA APLIKASI SIKURSUS (VERSI DESKTOP)
+==================================================
+
+1. UJI COBA HALAMAN LOGIN (01_login.png)
+   - Tujuan: Memeriksa proses masuk pengguna sesuai jenis akun (Admin / Operator).
+   - Hasil: Lolos. Aplikasi mencocokkan username dan password dengan data di database, lalu membuka Dashboard yang sesuai dengan level akses akun tersebut.
+
+2. UJI COBA DASHBOARD ADMIN (02_dashboard_admin.png)
+   - Tujuan: Memeriksa tampilan halaman utama saat masuk sebagai ADMIN.
+   - Hasil: Lolos. Semua menu (Master, Transaksi, Laporan, Keluar) dapat diakses tanpa batasan, dan identitas pengguna beserta perannya muncul dengan tepat.
+
+3. UJI COBA DASHBOARD OPERATOR (03_dashboard_operator.png)
+   - Tujuan: Memeriksa pembatasan akses menu ketika masuk sebagai Operator.
+   - Hasil: Lolos. Beberapa menu Master disembunyikan atau dibatasi sesuai ketentuan peran Operator.
+
+4. UJI COBA DATA PESERTA (04_master_peserta.png)
+   - Tujuan: Memeriksa form dan tabel pengelolaan peserta (CRUD: Tambah, Ubah, Hapus, Cari).
+   - Hasil: Lolos. Data peserta tersimpan ke database MySQL, tampil di JTable, dan melewati proses validasi input dengan baik.
+
+5. UJI COBA DATA KURSUS, INSTRUKTUR & KELAS (05_master_kursus_instruktur_kelas.png)
+   - Tujuan: Memeriksa modul data pendukung kegiatan kursus.
+   - Hasil: Lolos. Form input serta keterhubungan antar data kursus, instruktur, dan kelas berfungsi lancar tanpa error.
+
+6. UJI COBA TABEL PENGGUNA / MANAJEMEN USER (06_users_table.png)
+   - Tujuan: Memeriksa tabel data pengguna yang dipakai untuk administrasi sistem.
+   - Hasil: Lolos. Daftar akun beserta level aksesnya dapat ditampilkan dan dikelola langsung dari aplikasi desktop.
+
+7. UJI COBA TRANSAKSI & LAPORAN (07_transaksi_laporan.png)
+   - Tujuan: Memeriksa pencatatan transaksi pendaftaran serta pembuatan laporan.
+   - Hasil: Lolos. Transaksi tercatat ke database dan laporan dapat ditampilkan sesuai data yang tersimpan.
+
+==================================================
+KESIMPULAN: Seluruh modul yang diuji berjalan sesuai harapan.
+==================================================
